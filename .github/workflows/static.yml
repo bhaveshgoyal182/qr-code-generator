@@ -8,10 +8,6 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write
-      id-token: write
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -30,3 +26,5 @@ jobs:
         with:
           branch: gh-pages
           folder: driver
+        env:
+          ACCESS_TOKEN: ${{ secrets.GH_TOKEN }}
